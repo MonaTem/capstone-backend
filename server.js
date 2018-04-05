@@ -1,11 +1,28 @@
-var createError = require('http-errors');
+/*var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+*/
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+const knex = require('./db');
+var dotenv = require('dotenv').config();
+
+//const cards = require('./routes/cards');
+// var users = require('./routes/users');
+
+const PORT = 8000;
+
 
 var app = express();
 
