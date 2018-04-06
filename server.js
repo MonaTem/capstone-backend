@@ -1,7 +1,4 @@
-
-
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var createError = require('http-errors');
 var express = require('express');
@@ -13,11 +10,8 @@ var bodyParser = require('body-parser');
 const knex = require('./db');
 var dotenv = require('dotenv').config();
 
-//const cards = require('./routes/cards');
-// var users = require('./routes/users');
 
 const PORT = 8000;
-
 
 var app = express();
 
@@ -25,11 +19,19 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// Setup Middleware
+//
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static('public'))
+app.use(morgan('combined'));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+// Add routes
 
 app.use('/', indexRouter);
 app.use('/api/stories/*/happy_story');
@@ -53,3 +55,7 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+app.listen(PORT, () => {
+  console.log('Server listening on ', PORT);
+});
