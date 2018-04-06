@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon server.js",
-    "knex":  "knex"
+    "knex": "knex"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -18,7 +18,8 @@
     "http-errors": "~1.6.2",
     "knex": "^0.14.4",
     "morgan": "^1.9.0",
-    "pg": "^7.4.1"
+    "pg": "^7.4.1",
+    "serve-favicon": "^2.4.5"
   },
   "main": "app.js",
   "devDependencies": {

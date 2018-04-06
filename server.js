@@ -1,4 +1,6 @@
 var indexRouter = require('./routes/index');
+const happy_story = require('./routes/api/stories/*/happy_story');
+const sad_story = require('./routes/api/stories/*/sad_story');
 
 var createError = require('http-errors');
 var express = require('express');
@@ -27,15 +29,15 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static('public'))
-app.use(morgan('combined'));
+app.use(logger('combined'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // Add routes
 
 app.use('/', indexRouter);
-app.use('/api/stories/*/happy_story');
-app.use('/api/stories/*/sad_story');
+app.use('/api/stories/*/happy_story', happy_story );
+app.use('/api/stories/*/sad_story', sad_story);
 
 
 // catch 404 and forward to error handler
