@@ -13,6 +13,3 @@ app.get('api/stories/:id/happy_story',function(req,res)
       return response.text( rows );
 });
 });
-
-    // res.send("I am Foo with id " + red.params.id);
-});
