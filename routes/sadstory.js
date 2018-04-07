@@ -4,16 +4,22 @@ var router = express.Router();
 
 router.get('/sadstory/:id',  (req, res) => {
 
-  let id = req.params.id;
-  console.log('sadstory get');
+  router.get('/', function(req, res, next) {
+    res.render('sadstory', { title: 'Happy' });
+  });
 
-  knex.raw("SELECT sad_story FROM sad_story where char_id = id").then(rows => {
-    console.log("we are in the router.get for /sad_story!!" + rows);
-   })
-   .then( rows => {
-      console.log( rows );
-      return response.text( rows );
-});
-});
+
+  router.get('/:id', (req, res) => {
+
+    findStory(req).then(story => {
+      const sadstory = stories[0];
+      res.format({
+        'text/html': () =>  res.send( { sadstory })
+      });
+    });
+  });
+
+
+
 
 module.exports = router;
