@@ -3,12 +3,12 @@ var bodyParser = require('body-parser');
 var express = require('express');
 const cors = require('cors');
 
-var indexRouter = require('./routes/index');
-const happy_story = require('./routes/api/stories/happy_story');
-const sad_story = require('./routes/api/stories/sad_story');
+var indexRouter = require('./routes/home');
+const happystory = require('./routes/happystory');
+const sadstory = require('./routes/sadstory');
 const path = require('path');
 
-// console.log(happy_story, sad_story);
+// console.log(indexRouter);
 
 const PORT = 8000;
 
@@ -46,10 +46,11 @@ app.use(cors());
 // Add routes
 
 app.use('/', indexRouter);
+app.use('/happystory', happystory);
+app.use('/sadstory', sadstory);
+
 // app.use('api/stories/happy_story/:id', happy_story);
 // app.use('api/stories/sad_story/:id/', sad_story);
-app.use('/:id', happy_story);
-app.use('/:id', sad_story);
 
 console.log("the path is " + __dirname);
 

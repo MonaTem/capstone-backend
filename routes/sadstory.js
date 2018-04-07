@@ -1,14 +1,14 @@
 var express = require('express');
-var app = express.Router();
+var router = express.Router();
 
 
-app.get('api/stories//sad_story/:id',  (req, res) => {
+router.get('/sadstory/:id',  (req, res) => {
 
   let id = req.params.id;
-  console.log('sad story get');
+  console.log('sadstory get');
 
   knex.raw("SELECT sad_story FROM sad_story where char_id = id").then(rows => {
-    console.log("we are in the app.get for /sad_story!!" + rows);
+    console.log("we are in the router.get for /sad_story!!" + rows);
    })
    .then( rows => {
       console.log( rows );
@@ -16,4 +16,4 @@ app.get('api/stories//sad_story/:id',  (req, res) => {
 });
 });
 
-module.exports = app;
+module.exports = router;
