@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "scripts": {
     "lint": "eslint",
     "start": "nodemon server.js",
     "knex": "knex"
