@@ -4,7 +4,7 @@ const knex = require("../db");
 
 // Find one
 function findStory({params: { id }}) {
-  return knex('sad_story').where('char_id', id);
+  return knex.select('sad_story').from('sad_story').where('char_id', id);
 }
 
 module.exports = {

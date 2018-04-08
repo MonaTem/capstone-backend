@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const findStory = require("../models/happystory");
+const { findStory } = require("../models/happystory");
 
 
 router.get('/', function(req, res, next) {
@@ -12,9 +12,16 @@ router.get('/', function(req, res, next) {
 router.get('/:id', (req, res) => {
 
   findStory(req).then(story => {
-    const happystory = stories[0];
+    const storyhappy = story;
+    // console.log('happy story is ', happystory);
+    let happyvalue = (Object.values(storyhappy[0]));
+    let happystory = happyvalue.toString();
+
+    // const happyparse = JSON.parse(happystory);
+    // console.log('happy parse is ', happyparse);
     res.format({
-      'text/html': () =>  res.send( { happystory })
+       'text/plain': () =>  res.send( { happystory })
+      // 'application/json': () => res.send ( { happyvalue })
     });
   });
 });
