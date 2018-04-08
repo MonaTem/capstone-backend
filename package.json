@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "eslint",
     "start": "nodemon server.js",
-    "knex": "knex"
+    "knex": "knex",
+    "postinstall": "knex migrate:latest"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
