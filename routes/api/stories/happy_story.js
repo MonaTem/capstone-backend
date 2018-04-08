@@ -1,7 +1,7 @@
-happy_storyvar express = require('express');
+var express = require('express');
 var router = express.Router();
 
-const { findStory } = require("../models/happy_story");
+const { findStory } = require("../../../models/happy_story");
 
 
 router.get('/', function(req, res, next) {

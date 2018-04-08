@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const { findStory } = require("../models/sad_story");
+const { findStory } = require("../../../models/sad_story");
 
 
   router.get('/', function(req, res, next) {
