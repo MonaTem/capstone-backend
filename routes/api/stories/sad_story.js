@@ -1,5 +1,9 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
+const cors = require('cors');
+app.use(cors());
+
 
 const { findStory } = require("../../../models/sad_story");
 
