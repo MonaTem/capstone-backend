@@ -24,7 +24,7 @@ if (process.env.APP_MODE === undefined) {
  module.exports = {
   development: {
     client: 'pg',
-    connection: process.env.DATABASE_URL
+    connection: 'postgres://localhost:5432/capstone_stories'
    },
    production: {
      client: 'pg',
