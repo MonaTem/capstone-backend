@@ -10,7 +10,7 @@ const path = require('path');
 
 // console.log(indexRouter);
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 var app = express();
 
