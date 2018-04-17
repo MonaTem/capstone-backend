@@ -10,9 +10,10 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/:id', (req, res) => {
-
+  console.log("in router.get for happy");
   findStory(req).then(story => {
     const storyhappy = story;
+    console.log("storyhappy is ", storyhappy);
     // console.log('happy story is ', happy_story);
     let happyvalue = (Object.values(storyhappy[0]));
     let happy_story = happyvalue.toString();
